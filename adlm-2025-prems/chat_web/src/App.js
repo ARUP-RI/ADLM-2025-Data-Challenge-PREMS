@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import ChatForm from "./components/ChatForm";
 import ChatMessages from "./components/ChatMessages";
-import { streamChat } from "./apiClient";
+import { streamChat } from "./ApiClient";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
