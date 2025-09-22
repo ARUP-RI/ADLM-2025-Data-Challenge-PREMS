@@ -1,18 +1,5 @@
 const BASE_URL = process.env.REACT_APP_API_BASE_URL ?? "http://localhost:8000/api";
 
-async function api(path, { method = "GET", body } = {}) {
-    const res = await fetch(`${BASE_URL}${path}`, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: body !== undefined ? JSON.stringify(body) : undefined,
-    });
-    if (!res.ok) {
-        const detail = await res.text().catch(() => "");
-        throw new Error(`${res.status} ${res.statusText} – ${detail}`);
-    }
-    return res.status === 204 ? null : res.json();
-}
-
 export async function* streamChat(message) {
     const res = await fetch(`${BASE_URL}/chat`, {
         method: "POST",
